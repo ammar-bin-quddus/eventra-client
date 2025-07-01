@@ -55,7 +55,11 @@ export const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path:"/update-event/:id",
-    element: <UpdateEvent />
-  }
+    path: "/update-event/:id",
+    element: (
+      <PrivateRouter>
+        <UpdateEvent />
+      </PrivateRouter>
+    ),
+  },
 ]);
