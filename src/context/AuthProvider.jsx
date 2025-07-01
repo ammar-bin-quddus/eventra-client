@@ -34,32 +34,41 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    // Watch for changes to the Firebase auth state
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
-      setLoading(false);
-      try {
-        if (currentUser) {
-          const { data } = await axios.post(
-            "http://localhost:5000/api/auth/login",
-            { email: currentUser?.email }
-          );
-          localStorage.setItem("token", data?.token);
-        } else {
-          localStorage.removeItem("token");
+
+      if (currentUser) {
+        try {
+          // Request a JWT from the server using the user's email
+          const res = await axios.post("http://localhost:5000/api/auth/login", {
+            email: currentUser?.email,
+          });
+
+          // Save token locally and update state
+          if (res.data?.token) {
+            localStorage.setItem("token", res.data.token);
+          }
+        } catch (err) {
+          console.error("Failed to get JWT token:", err.message);
         }
-      } catch (error) {
-        console.error("Error:", error.message);
+      } else {
+        // User is signed out — clean up
+        localStorage.removeItem("token");
       }
+
+      // Done loading either way
+      setLoading(false);
     });
 
-    return () => {
-      unSubscribe();
-    };
+    // Clean up the listener when the component unmounts
+    return () => unsubscribe();
   }, []);
 
   const authInfo = {
     user,
     loading,
+    setLoading,
     handleRegister,
     handleLogin,
     handleLogOut,

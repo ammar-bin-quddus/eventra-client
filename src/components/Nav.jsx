@@ -64,10 +64,10 @@ function Nav() {
                   />
                   {dropdownOpen && (
                     <ul className="absolute top-12 right-0 bg-gray-800 text-yellow-200 shadow-lg py-2 px-3 w-44 rounded-lg z-10">
-                      <li className="block py-2 px-3 hover:bg-gray-700 rounded">
+                      <li className="block py-2 px-3 hover:bg-gray-700 rounded text-center">
                         {user?.displayName}
                       </li>
-                      <li className="block py-2 px-3 hover:bg-gray-700 rounded">
+                      <li className="py-2 px-3 rounded flex items-center justify-center">
                         <button
                           onClick={handleLogOut}
                           className="py-2 px-4 bg-red-500 text-white rounded-full hover:bg-red-600 transition-all duration-300"
@@ -84,7 +84,13 @@ function Nav() {
                   <NavLink
                     key={index}
                     to={item.link}
-                    className="block py-2 px-3 hover:bg-gray-700 rounded"
+                    className={({ isActive }) =>
+                      `py-2 px-4 rounded-full transition-all duration-300 ${
+                        isActive
+                          ? "bg-yellow-600 text-white shadow-lg"
+                          : "text-yellow-400 hover:bg-yellow-600 hover:text-white"
+                      }`
+                    }
                     onClick={() => setActiveButton(item.link)}
                   >
                     {item.title}
