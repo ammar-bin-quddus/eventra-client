@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://eventra-server-omega.vercel.app/api",
 });
 
 axiosSecure.interceptors.request.use((config) => {
