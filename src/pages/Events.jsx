@@ -69,7 +69,7 @@ const Events = () => {
         <input
           type="text"
           placeholder="Search by title..."
-          className="input input-bordered w-full max-w-md"
+          className="p-2 outline-yellow-600 border border-yellow-600 w-full max-w-md"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
@@ -77,7 +77,7 @@ const Events = () => {
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="select select-bordered w-full md:w-52"
+          className="p-2 outline-yellow-600 border border-yellow-600 w-full md:w-52"
         >
           <option value="all">All Events</option>
           <option value="today">Today</option>
@@ -95,7 +95,7 @@ const Events = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredEvents.map((event) => (
-            <div key={event._id} className="p-5 border rounded shadow-sm">
+            <div key={event._id} className="p-5 border-2 border-yellow-600 rounded shadow-sm">
               <h3 className="text-xl font-bold mb-1">{event.title}</h3>
               <p className="text-sm text-gray-600 mb-1">
                 Hosted by: {event.name}
