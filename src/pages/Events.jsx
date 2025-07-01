@@ -110,7 +110,7 @@ const Events = () => {
               </p>
               <button
                 onClick={() => handleJoin(event._id)}
-                className="btn btn-sm btn-primary"
+                className="text-black bg-white px-8 py-1 rounded-md text-sm border border-yellow-600 hover:bg-yellow-600 hover:text-white duration-300 active:scale-95 cursor-pointer"
               >
                 Join Event
               </button>

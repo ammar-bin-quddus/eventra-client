@@ -15,7 +15,7 @@ const Home = () => {
         <p className="text-lg mb-6 max-w-xl mx-auto">
           Discover, host, and join amazing events. Your hub for smart event management and community building.
         </p>
-        <Link to="/events" className="btn btn-primary px-8 py-2 rounded-md text-lg">Explore Events</Link>
+        <Link to="/events" className="text-black bg-white px-8 py-2 rounded-md text-lg hover:bg-yellow-600 hover:text-white duration-300 active:scale-95">Explore Events</Link>
       </section>
 
       {/* Upcoming Events */}
@@ -75,10 +75,10 @@ const Home = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#1e293b] text-white py-16 px-6 text-center mb-8">
+      <section className="bg-[#1e293b] text-white py-16 px-6 text-center mb-6">
         <h2 className="text-3xl font-bold mb-4">Ready to Host or Join an Event?</h2>
         <p className="mb-6">Get started by exploring current events or creating your own.</p>
-        <Link to="/events" className="btn btn-secondary px-8 py-2 rounded-md text-lg">Get Started</Link>
+        <Link to="/events" className="text-black bg-white px-8 py-2 rounded-md text-lg hover:bg-yellow-600 hover:text-white duration-300 active:scale-95">Get Started</Link>
       </section>
     </div>
   );

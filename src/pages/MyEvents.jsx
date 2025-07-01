@@ -35,13 +35,13 @@ const MyEvents = () => {
               <div className="flex gap-2">
                 <Link
                   to={`/update-event/${event._id}`}
-                  className="btn btn-sm btn-outline"
+                  className="text-black bg-white px-8 py-1 rounded-md text-sm border border-yellow-600 hover:bg-yellow-600 hover:text-white duration-300 active:scale-95 cursor-pointer"
                 >
                   Edit
                 </Link>
                 <button
                   onClick={() => handleDelete(event._id)}
-                  className="btn btn-sm btn-error"
+                  className="text-black bg-white px-8 py-1 rounded-md text-sm border border-yellow-600 hover:bg-yellow-600 hover:text-white duration-300 active:scale-95 cursor-pointer"
                 >
                   Delete
                 </button>
