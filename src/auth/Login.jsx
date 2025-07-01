@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/UseAuth";
+import useAuth from "../hooks/useAuth";
 
 const Login = () => {
   const {

@@ -4,6 +4,10 @@ import Errorpage from "../errorpage/Errorpage";
 import Home from "../pages/Home";
 import Register from "../auth/Register";
 import Login from "../auth/Login";
+import Events from "../pages/Events";
+import AddEvents from "../pages/AddEvents";
+import MyEvents from "../pages/MyEvents";
+import PrivateRouter from "../privateRoutes/PrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -11,18 +15,42 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     errorElement: <Errorpage />,
     children: [
-        {
-            path:"/",
-            element: <Home />
-        },
-        {
-          path:"/login",
-          element: <Login />
-        }
-    ]
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/events",
+        element: (
+          <PrivateRouter>
+            <Events />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/add-event",
+        element: (
+          <PrivateRouter>
+            <AddEvents />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/my-event",
+        element: (
+          <PrivateRouter>
+            <MyEvents />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+    ],
   },
   {
-    path:"/register",
-    element: <Register />
-  }
+    path: "/register",
+    element: <Register />,
+  },
 ]);

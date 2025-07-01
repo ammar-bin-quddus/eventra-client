@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
-import useAuth from "../hooks/UseAuth";
+import useAuth from "../hooks/useAuth";
 
 const Register = () => {
   const {

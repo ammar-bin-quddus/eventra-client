@@ -12,4 +12,6 @@ axiosSecure.interceptors.request.use((config) => {
   return config;
 });
 
-export default axiosSecure;
+const useAxiosSecure = () => axiosSecure;
+
+export default useAxiosSecure;
