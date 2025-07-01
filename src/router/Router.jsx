@@ -8,6 +8,7 @@ import Events from "../pages/Events";
 import AddEvents from "../pages/AddEvents";
 import MyEvents from "../pages/MyEvents";
 import PrivateRouter from "../privateRoutes/PrivateRouter";
+import UpdateEvent from "../pages/UpdateEvent";
 
 export const router = createBrowserRouter([
   {
@@ -53,4 +54,8 @@ export const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+  {
+    path:"/update-event/:id",
+    element: <UpdateEvent />
+  }
 ]);
